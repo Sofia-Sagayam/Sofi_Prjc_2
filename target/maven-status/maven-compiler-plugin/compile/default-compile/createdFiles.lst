@@ -1,0 +1,5 @@
+com\stackroute\activitystream\UserService\model\User.class
+com\stackroute\activitystream\UserService\UserServiceApplication.class
+com\stackroute\activitystream\UserService\controller\UserController.class
+com\stackroute\activitystream\UserService\dao\UserDaoImpl.class
+com\stackroute\activitystream\UserService\dao\UserDao.class
