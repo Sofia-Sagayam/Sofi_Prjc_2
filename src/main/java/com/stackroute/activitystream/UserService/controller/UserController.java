@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.stackroute.activitystream.UserService.dao.UserDao;
 import com.stackroute.activitystream.UserService.model.User;
 
+//Where is loggedout method??
+
+
 @RestController
 public class UserController {
 	@Autowired
@@ -32,9 +35,12 @@ public class UserController {
 		{
 		return new ResponseEntity<String>("registered successfully!!..",HttpStatus.CREATED);
 	  }
+		  //Whey it is not acceptable?  Is it conflict?
 		return new ResponseEntity<String>("mailid registered already,pls use new mailid",HttpStatus.NOT_ACCEPTABLE);
 		
 	  }
+	
+	//Either this method should return user home else, you may required to create another service which get user home
 	@RequestMapping(value="/signin",method= RequestMethod.POST)
 	  public ResponseEntity<String> loginUser(@RequestBody User user){
 		  //send email id and password to dao.  it should return true or false
