@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -62,8 +63,28 @@ public class MockitoUserSerivceTest {
 	    }
 	    @Test
 	    public void signIn() throws Exception{
-	    	
+	    	User user=new User();
+	    	user.setEmailid("jk@gmail.com");
+	    	user.setUpass("jk123");
+	    	RequestBuilder requestBuilder = post("/signin")
+	                .param("username", user.getEmailid())
+	                .param("password", user.getUpass());
+	        mockMvc.perform(requestBuilder)
+	                .andExpect(status().isOk())
+	                .andExpect(cookie().exists("JSESSIONID"));	    	    	
 	    }
+	    
+	   /* @Test
+	    public void testUserLogin() throws Exception {
+	        RequestBuilder requestBuilder = post("/login")
+	                .param("username", testUser.getUsername())
+	                .param("password", testUser.getPassword());
+	        mockMvc.perform(requestBuilder)
+	                .andDo(print())
+	                .andExpect(status().isOk())
+	                .andExpect(cookie().exists("JSESSIONID"));
+	    }*/
+	    
 	    
 	    // json convertion method
 	    private String javaToJson(User user){

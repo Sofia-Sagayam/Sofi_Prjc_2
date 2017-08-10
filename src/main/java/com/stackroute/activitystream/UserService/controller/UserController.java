@@ -21,7 +21,7 @@ public class UserController {
 	@Autowired
 	private UserDao userDao;
 	@RequestMapping(value="/alluser",method = RequestMethod.GET)
-	public HttpEntity<List<User>> getCustomers() {
+	public ResponseEntity<List<User>> getUsers() {
 		List<User> users=userDao.getUsers();
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
