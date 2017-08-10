@@ -39,7 +39,7 @@ public class UserController {
 	  public ResponseEntity<String> loginUser(@RequestBody User user){
 		  //send email id and password to dao.  it should return true or false
 		
-		if(userDao.validateUser(user.getEmailid(), user.getUpass()))
+		if(userDao.validateUser(user.getEmailId(), user.getUserPass()))
 		{
 		return new ResponseEntity<String>("welcome!!! ",HttpStatus.CREATED);
 		}

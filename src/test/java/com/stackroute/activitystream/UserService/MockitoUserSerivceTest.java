@@ -51,10 +51,10 @@ public class MockitoUserSerivceTest {
 	    @Test
 	    public void signUp() throws Exception{
 	    	User user=new User();
-	    	user.setUname("sweta");
-	    	user.setEmailid("selvi123@gmail.com");
-	    	user.setUpass("sweta@123");
-	    	user.setUaddress("sweta street mockmvc");
+	    	user.setUserName("mary selvi");
+	    	user.setEmailId("mary@gmail.com");
+	    	user.setUserPass("sweta@123");
+	    	user.setUserAddress("sweta street mockmvc");
 	    	
 	    	this.mockMvc.perform(post("http://localhost:9000/signup")
 	    	        .contentType(MediaType.APPLICATION_JSON).content(javaToJson(user)))
@@ -64,11 +64,11 @@ public class MockitoUserSerivceTest {
 	    @Test
 	    public void signIn() throws Exception{
 	    	User user=new User();
-	    	user.setEmailid("jk@gmail.com");
-	    	user.setUpass("jk123");
+	    	user.setEmailId("jk@gmail.com");
+	    	user.setUserPass("jk123");
 	    	RequestBuilder requestBuilder = post("/signin")
-	                .param("username", user.getEmailid())
-	                .param("password", user.getUpass());
+	                .param("username", user.getEmailId())
+	                .param("password", user.getUserPass());
 	        mockMvc.perform(requestBuilder)
 	                .andExpect(status().isOk())
 	                .andExpect(cookie().exists("JSESSIONID"));	    	    	
@@ -90,7 +90,6 @@ public class MockitoUserSerivceTest {
 	    private String javaToJson(User user){
 	    	Gson gson = new Gson();
 	        String json = gson.toJson(user);
-	        System.out.println(json);
 	        return json;
 	    }
 }
