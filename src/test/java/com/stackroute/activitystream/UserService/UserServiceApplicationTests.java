@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.stackroute.activitystream.UserService.dao.UserDao;
 import com.stackroute.activitystream.UserService.model.User;
 
+//Thse are normal junit test cases.  Use JMock
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 public class UserServiceApplicationTests {
