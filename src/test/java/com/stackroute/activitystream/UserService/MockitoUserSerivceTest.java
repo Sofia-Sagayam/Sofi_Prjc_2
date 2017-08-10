@@ -30,6 +30,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
 
+//Where are the other test cases?
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes=UserServiceApplication.class)
 @WebAppConfiguration
@@ -49,6 +51,8 @@ public class MockitoUserSerivceTest {
 	    	}
 	    @Test
 	    public void signUp() throws Exception{
+		    
+		   //why to create intance with 'new' operator? 
 	    	User user=new User();
 	    	user.setUname("sweta");
 	    	user.setEmailid("selvi123@gmail.com");
