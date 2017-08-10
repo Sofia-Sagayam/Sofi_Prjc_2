@@ -11,11 +11,17 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.stackroute.activitystream.UserService.model.User;
+
+//format all the files using eclipse before commiting the code.
+
+
 @Repository(value="userDao")
 @Component
 @Transactional
 @EnableTransactionManagement
 public class UserDaoImpl implements UserDao {
+	
+	//why not private??
 	@Autowired
 	private SessionFactory sessionFactory;
 	
