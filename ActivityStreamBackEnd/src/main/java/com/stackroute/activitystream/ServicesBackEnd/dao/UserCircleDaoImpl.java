@@ -40,6 +40,7 @@ public class UserCircleDaoImpl implements UserCircleDao {
 	@Override
 	public boolean removeUserCircle(String userCircleId) {
 		try{
+			//should not be delete.  set status = U (unsubscribe)
 			sessionFactory.getCurrentSession().delete(getUserCircleById(userCircleId));
 			return true;
 		}
