@@ -13,8 +13,11 @@ public class Circle {
 	@Id
 	private String circleId;
 	private String circleName;
+	//is it circleBy or createdBy?
 	private String circleBy;
+	//if the data type is boolean, the field name should start with "is".  like isActive
 	private boolean circleStatus;
+	//Waht is this Init?
 	private Date circleInit;
 	public String getCircleId() {
 		return circleId;
