@@ -13,6 +13,8 @@ public class UserCircle {
 private String userCircleId;
 private String circleId;
 private String emailId;
+	
+//Where are subscribe field and date of joing field?
 public String getUserCircleId() {
 	return userCircleId;
 }
