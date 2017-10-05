@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @EnableTransactionManagement
 public class CircleDaoImpl implements CircleDao {
+	//why default access specifier?
 	@Autowired
 	SessionFactory sessionFactory;	
 	private List<Circle> listOfCircle;
@@ -29,6 +30,7 @@ public class CircleDaoImpl implements CircleDao {
 		this.sessionFactory = sessionFactory;
 	}
 
+	//What is c?
 	public boolean addCircle(Circle c) {
 		try{
 			sessionFactory.getCurrentSession().save(c);
@@ -40,6 +42,7 @@ public class CircleDaoImpl implements CircleDao {
 
 	public boolean removeCircle(String circleId) {
 		try{
+			//What is the use of circleStatus field if you delete from the db?
 			sessionFactory.getCurrentSession().delete(getCircleById(circleId));
 			return true;
 		}
@@ -49,6 +52,7 @@ public class CircleDaoImpl implements CircleDao {
 
 	public List<Circle> getAllCircle() {
 		try{	 		
+			//Should get only active circles,  not all circles.
 		listOfCircle=sessionFactory.openSession().createQuery("from Circle").list();
 			return listOfCircle;
 		}
