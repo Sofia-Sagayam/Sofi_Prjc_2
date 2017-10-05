@@ -86,6 +86,7 @@ public class MessageDaoImpl implements MessageDao {
 			return false;}
 	}
 
+	//it should be private method
 @Override
 public boolean sendMessageToInbox(UserMessage message) {
 	try{
@@ -97,6 +98,7 @@ public boolean sendMessageToInbox(UserMessage message) {
 		return false;}
 }
 
+	//it should be private method
 @Override
 public boolean sendMessageToOutbox(Outbox message) {
 	try{
