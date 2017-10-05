@@ -10,9 +10,14 @@ public class User {
 	@Id
 	private String emailId;
 	private String userName;
+	//What is this userPass? can use password.
 	private String userPass;
 	private String userAddress;
+	//Why this user roles?
 	private String userRoles;
+	
+	//where is onLine property?
+	
 	
 	
 	public String getUserRoles() {
