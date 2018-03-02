@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd.model;
+package com.stackroute.activitystream.servicesbackend.model;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Outbox {
 	@Id
-	private String messageId;
+	private int messageId;
 	private String senderId;
 	private String receiverId;
 	private String messageContent;
@@ -16,13 +16,12 @@ public class Outbox {
 	private String messageSize;
 	private String circleId;
 	private Date dateOfMessage;
-	public String getMessageId() {
+	public int getMessageId() {
 		return messageId;
 	}
-	public void setMessageId(String messageId) {
+	public void setMessageId(int messageId) {
 		this.messageId = messageId;
 	}
-
 	public String getSenderId() {
 		return senderId;
 	}

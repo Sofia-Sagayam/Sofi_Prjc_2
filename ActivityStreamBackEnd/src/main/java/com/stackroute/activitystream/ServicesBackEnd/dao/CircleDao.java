@@ -1,8 +1,8 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 
 import java.util.List;
 
-import com.stackroute.activitystream.ServicesBackEnd.model.Circle;
+import com.stackroute.activitystream.servicesbackend.model.Circle;
 
 public interface CircleDao {
 	boolean addCircle(Circle c);

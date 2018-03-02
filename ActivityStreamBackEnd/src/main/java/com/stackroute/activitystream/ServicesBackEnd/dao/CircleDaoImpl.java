@@ -1,8 +1,10 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 
 
 
-import com.stackroute.activitystream.ServicesBackEnd.model.Circle;
+import com.stackroute.activitystream.servicesbackend.model.Circle;
+
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -29,9 +31,11 @@ public class CircleDaoImpl implements CircleDao {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public boolean addCircle(Circle c) {
+	public boolean addCircle(Circle circle) {
 		try{
-			sessionFactory.getCurrentSession().save(c);
+			circle.setCircleInit(new Date());
+			circle.setCircleStatus(true);
+			sessionFactory.getCurrentSession().save(circle);
 			return true;
 			}
 			catch(Exception e){

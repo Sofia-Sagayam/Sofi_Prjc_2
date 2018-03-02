@@ -1,0 +1,103 @@
+17:03:29.878 [http-nio-9003-exec-1] DEBUG o.s.b.w.f.OrderedRequestContextFilter - Bound request context to thread: org.apache.catalina.connector.RequestFacade@3737a56f
+17:03:29.912 [http-nio-9003-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - DispatcherServlet with name 'dispatcherServlet' processing GET request for [/messageFromUser/hansu@niit.com]
+17:03:29.916 [http-nio-9003-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /messageFromUser/hansu@niit.com
+17:03:29.923 [http-nio-9003-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<java.util.List<com.stackroute.activitystream.servicesbackend.model.Message>> com.stackroute.activitystream.messageservice.controller.MessageController.getMessageFromUser(java.lang.String)]
+17:03:29.925 [http-nio-9003-exec-1] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'messageController'
+17:03:29.925 [http-nio-9003-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Last-Modified value for [/messageFromUser/hansu@niit.com] is: -1
+17:03:29.927 [http-nio-9003-exec-1] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+17:03:29.940 [http-nio-9003-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@343670d] for JPA transaction
+17:03:29.940 [http-nio-9003-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.stackroute.activitystream.servicesbackend.dao.MessageDaoImpl.getMessageFromUser]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+17:03:29.941 [http-nio-9003-exec-1] DEBUG o.h.e.t.internal.TransactionImpl - begin
+17:03:29.946 [http-nio-9003-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@61bbaff2]
+17:03:29.951 [http-nio-9003-exec-1] DEBUG org.hibernate.SQL - select this_.message_id as message_1_2_0_, this_.circle_id as circle_i2_2_0_, this_.date_of_message as date_of_3_2_0_, this_.message_content as message_4_2_0_, this_.message_size as message_5_2_0_, this_.message_type as message_6_2_0_, this_.receiver_id as receiver7_2_0_, this_.sender_id as sender_i8_2_0_ from message this_ where this_.sender_id=?
+17:03:29.955 [http-nio-9003-exec-1] DEBUG org.hibernate.loader.Loader - Result set row: 0
+17:03:29.955 [http-nio-9003-exec-1] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[com.stackroute.activitystream.servicesbackend.model.Message#m001]
+17:03:29.956 [http-nio-9003-exec-1] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [com.stackroute.activitystream.servicesbackend.model.Message#m001]
+17:03:29.957 [http-nio-9003-exec-1] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [com.stackroute.activitystream.servicesbackend.model.Message#m001]
+17:03:29.957 [http-nio-9003-exec-1] DEBUG o.s.o.hibernate4.SessionFactoryUtils - Flushing Hibernate Session on transaction synchronization
+17:03:29.957 [http-nio-9003-exec-1] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+17:03:29.959 [http-nio-9003-exec-1] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+17:03:29.959 [http-nio-9003-exec-1] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+17:03:29.959 [http-nio-9003-exec-1] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+17:03:29.959 [http-nio-9003-exec-1] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+17:03:29.959 [http-nio-9003-exec-1] DEBUG o.h.internal.util.EntityPrinter - com.stackroute.activitystream.servicesbackend.model.Message{dateOfMessage=2017-09-12 16:46:26.738, senderId=hansu@niit, receiverId=null, messageType=text, messageId=m001, circleId=d001, messageSize=12kb, messageContent=Hello good morning!!!!}
+17:03:29.960 [http-nio-9003-exec-1] DEBUG org.hibernate.internal.SessionImpl - Disconnecting session
+17:03:29.960 [http-nio-9003-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+17:03:29.960 [http-nio-9003-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@343670d]
+17:03:29.960 [http-nio-9003-exec-1] DEBUG o.h.e.t.internal.TransactionImpl - committing
+17:03:29.964 [http-nio-9003-exec-1] DEBUG o.s.o.hibernate4.SessionFactoryUtils - Unexpected exception on closing Hibernate Session
+java.lang.NoSuchMethodError: org.hibernate.Session.close()Ljava/sql/Connection;
+	at org.springframework.orm.hibernate4.SessionFactoryUtils.closeSession(SessionFactoryUtils.java:121)
+	at org.springframework.orm.hibernate4.SpringSessionSynchronization.afterCompletion(SpringSessionSynchronization.java:150)
+	at org.springframework.transaction.support.TransactionSynchronizationUtils.invokeAfterCompletion(TransactionSynchronizationUtils.java:168)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.invokeAfterCompletion(AbstractPlatformTransactionManager.java:1002)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.triggerAfterCompletion(AbstractPlatformTransactionManager.java:977)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:806)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:730)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:518)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:292)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy78.getMessageFromUser(Unknown Source)
+	at com.stackroute.activitystream.messageservice.controller.MessageController.getMessageFromUser(MessageController.java:27)
+	at sun.reflect.GeneratedMethodAccessor56.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+17:03:29.964 [http-nio-9003-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+17:03:29.971 [http-nio-9003-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [[com.stackroute.activitystream.servicesbackend.model.Message@adfa649]] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@171dc7c3]
+17:03:29.971 [http-nio-9003-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
+17:03:29.971 [http-nio-9003-exec-1] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+17:03:29.971 [http-nio-9003-exec-1] DEBUG o.s.o.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+17:03:29.971 [http-nio-9003-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Successfully completed request
+17:03:29.972 [http-nio-9003-exec-1] DEBUG o.s.b.w.f.OrderedRequestContextFilter - Cleared thread-bound request context: org.apache.catalina.connector.RequestFacade@3737a56f

@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd;
+package com.stackroute.activitystream.servicesbackend;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -11,14 +11,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.stackroute.activitystream.ServicesBackEnd.dao.UserDao;
-import com.stackroute.activitystream.ServicesBackEnd.model.Circle;
-import com.stackroute.activitystream.ServicesBackEnd.model.Message;
-import com.stackroute.activitystream.ServicesBackEnd.model.User;
-import com.stackroute.activitystream.ServicesBackEnd.model.UserCircle;
+import com.stackroute.activitystream.servicesbackend.dao.UserDao;
+import com.stackroute.activitystream.servicesbackend.model.User;
+
+
+
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+//Thse are not services
+//It should be UserDAOTestCase
 public class UserServicesTest {
 	@Autowired
 	private UserDao userDao;
@@ -31,31 +34,35 @@ public class UserServicesTest {
 		
 	}
 	
-	@Test
+	//@Test(expected=Exception.class)
 	public void saveUser() {
-	user.setEmailId("logger@niit.com");
-	user.setUserName("logger");
-	user.setUserPass("logger#321");
-	user.setUserAddress("bangalore");
+	user.setEmailId("divya@niit.com");
+	user.setUserName("divya");
+	user.setUserPass("123");
+	user.setUserAddress("chenaai");
 	userDao.registerUser(user);
 	User found=userDao.getUserbyId(user.getEmailId());
 	assertNotNull(found);
 	
 	}
+	
+	//login user
 
-	@Test
+	@Test(expected=AssertionError.class)
 	public void reteriveUser(){
-		User reterivedData=	userDao.getUserbyId("roshini@niit.com");
+		User reterivedData=	userDao.getUserbyId("dummy@niit.com");
+		
 		assertNotNull(reterivedData);
 	}
-	@Test
+	@Test(expected=NullPointerException.class)
 	public void updateUser(){
-		User reterivedData=	userDao.getUserbyId("roshini@niit.com");
+		User reterivedData=	userDao.getUserbyId("dummy@niit.com");
 		reterivedData.setUserName("jai kutty");
 		assertTrue(userDao.updateUser(reterivedData));
 	}
-	@Test
+	@Test(expected=AssertionError.class)
 	public void deleteUser(){
+		
 		assertTrue(userDao.deleteUser("dummy@niit.com"));
 	}
 	

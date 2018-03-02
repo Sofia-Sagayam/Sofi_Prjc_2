@@ -1,8 +1,8 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 
 import java.util.List;
 
-import com.stackroute.activitystream.ServicesBackEnd.model.UserCircle;
+import com.stackroute.activitystream.servicesbackend.model.UserCircle;
 
 public interface UserCircleDao {
 

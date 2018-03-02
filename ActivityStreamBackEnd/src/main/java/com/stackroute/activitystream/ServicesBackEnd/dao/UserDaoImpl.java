@@ -1,21 +1,23 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 import java.util.List;
+
+
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.stackroute.activitystream.ServicesBackEnd.model.User;
+import com.stackroute.activitystream.servicesbackend.model.User;
 
 @Repository(value="userDao")
 @Component
 @Transactional
 @EnableTransactionManagement
 public class UserDaoImpl implements UserDao {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -23,9 +25,9 @@ public class UserDaoImpl implements UserDao {
 
 public boolean registerUser(User user) {
 	try{
-	sessionFactory.getCurrentSession().save(user);
 	
-	return true;
+	sessionFactory.getCurrentSession().save(user);
+		return true;
 	}
 	catch(Exception e){
 		e.printStackTrace();
@@ -52,7 +54,7 @@ public List<User> getUsers() {
 
 public boolean validateUser(String userid,String userpass){
 	try{
-	listOfUser=sessionFactory.openSession().createQuery("from User u where u.emailid=? and u.upass=?").setParameter(0, userid).setParameter(1, userpass).list();
+	listOfUser=sessionFactory.openSession().createQuery("from User u where u.emailId=? and u.userPass=?").setParameter(0, userid).setParameter(1, userpass).list();
 	}
 	catch(Exception e){}
 	return listOfUser.size()>0?true:false;

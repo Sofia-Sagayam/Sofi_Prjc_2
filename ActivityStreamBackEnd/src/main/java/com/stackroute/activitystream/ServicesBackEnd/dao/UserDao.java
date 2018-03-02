@@ -1,8 +1,8 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 
 import java.util.List;
 
-import com.stackroute.activitystream.ServicesBackEnd.model.User;
+import com.stackroute.activitystream.servicesbackend.model.User;
 
 public interface UserDao {
 	public boolean registerUser(User user);

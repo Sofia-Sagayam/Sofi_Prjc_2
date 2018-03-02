@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 
 import java.util.List;
 import java.util.Random;
@@ -7,6 +7,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,11 +16,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.stackroute.activitystream.ServicesBackEnd.model.Message;
-import com.stackroute.activitystream.ServicesBackEnd.model.Outbox;
-import com.stackroute.activitystream.ServicesBackEnd.model.User;
-import com.stackroute.activitystream.ServicesBackEnd.model.UserCircle;
-import com.stackroute.activitystream.ServicesBackEnd.model.UserMessage;
+import com.stackroute.activitystream.servicesbackend.model.Message;
+import com.stackroute.activitystream.servicesbackend.model.Outbox;
+import com.stackroute.activitystream.servicesbackend.model.User;
+import com.stackroute.activitystream.servicesbackend.model.UserCircle;
+import com.stackroute.activitystream.servicesbackend.model.UserMessage;
 
 @Repository(value="messageDao")
 @Component
@@ -41,7 +43,7 @@ public class MessageDaoImpl implements MessageDao {
 		try{
 			Session sess=sessionFactory.getCurrentSession();
 			sess.save(message);
-			outbox.setCircleId(message.getCircleId());
+			/*outbox.setCircleId(message.getCircleId());
 			outbox.setDateOfMessage(message.getDateOfMessage());
 			outbox.setMessageContent(message.getMessageContent());
 			outbox.setMessageId(message.getMessageId());
@@ -70,7 +72,7 @@ public class MessageDaoImpl implements MessageDao {
 			}
 			else{
 				UserMessage inbox=new UserMessage();
-				inbox.setCircleId(message.getCircleId());
+				inbox.setMessageId(message.getMessageId());
 				inbox.setDateOfMessage(message.getDateOfMessage());
 				inbox.setMessageContent(message.getMessageContent());
 				inbox.setMessageSize(message.getMessageSize());
@@ -78,11 +80,12 @@ public class MessageDaoImpl implements MessageDao {
 				inbox.setReceiverId(message.getReceiverId());
 				inbox.setSenderId(message.getSenderId());
 				sendMessageToInbox(inbox);
-			}
+			}*/
 			return true;
 
 			}
 			catch(Exception e){
+				System.out.println(e+"=================is error===================");
 			return false;}
 	}
 
@@ -110,14 +113,26 @@ public boolean sendMessageToOutbox(Outbox message) {
 
 
 	@Override
-	public List<Message> getMessageFromUser(String senderID) {
+	public List<Message> getMessageFromUser(String oppUserId) {
 		try{
-			List<Message> results=  sessionFactory.getCurrentSession().createQuery("from Message m where m.senderId=:sid").setParameter("sid", senderID).list();
-		
-			System.out.println(results.get(0));
-			return results;
+			Criteria cr = sessionFactory.getCurrentSession().createCriteria(Message.class);
+			Disjunction objDisjunction = Restrictions.disjunction();
+			
+			objDisjunction.add(Restrictions.eq("senderId", oppUserId));
+			objDisjunction.add(Restrictions.eq("receiverId", oppUserId));
+			Criterion thirdCondition = 
+				    Restrictions.conjunction().add(Restrictions.isNull("circleId"));
+			
+			cr.add(objDisjunction);
+			cr.add(thirdCondition);
+			List<Message> message = cr.list();
+			for(Message m:message){
+			System.out.println("msg content*****************************"+m.getMessageContent());
+			}
+			return message;
 			}
 			catch(Exception e){
+			
 				return null;
 			}
 	}
@@ -125,10 +140,10 @@ public boolean sendMessageToOutbox(Outbox message) {
 	@Override
 	public List<Message> getMessageFromCircle(String circleID) {
 		try{
-			List<Message> results= sessionFactory.getCurrentSession().createQuery("from Message m where m.circleId=:cid").setParameter("cid", circleID).list();
+			List<Message> messages= sessionFactory.getCurrentSession().createQuery("from Message m where m.circleId=:cid").setParameter("cid", circleID).list();
 		
-			System.out.println(results.get(0));
-			return results;
+			System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"+messages.get(0));
+			return messages;
 			}
 			catch(Exception e){
 				return null;

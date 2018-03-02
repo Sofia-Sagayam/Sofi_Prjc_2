@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd.model;
+package com.stackroute.activitystream.servicesbackend.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,8 +14,7 @@ public class User {
 	private String userAddress;
 	private String userRoles;
 	
-	
-	public String getUserRoles() {
+		public String getUserRoles() {
 		return userRoles;
 	}
 	public void setUserRoles(String userRoles) {

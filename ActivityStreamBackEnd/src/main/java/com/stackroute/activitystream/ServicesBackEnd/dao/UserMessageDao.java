@@ -1,10 +1,10 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 
 import java.util.Date;
 
-import com.stackroute.activitystream.ServicesBackEnd.model.Message;
-import com.stackroute.activitystream.ServicesBackEnd.model.Outbox;
-import com.stackroute.activitystream.ServicesBackEnd.model.UserMessage;
+import com.stackroute.activitystream.servicesbackend.model.Message;
+import com.stackroute.activitystream.servicesbackend.model.Outbox;
+import com.stackroute.activitystream.servicesbackend.model.UserMessage;
 
 public interface UserMessageDao {
 public boolean sendMessage(UserMessage message);

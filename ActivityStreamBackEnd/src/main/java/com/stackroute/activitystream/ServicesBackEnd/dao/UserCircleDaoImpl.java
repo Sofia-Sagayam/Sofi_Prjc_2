@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.stackroute.activitystream.ServicesBackEnd.model.UserCircle;
+import com.stackroute.activitystream.servicesbackend.model.UserCircle;
 @Repository(value="userCircleDao")
 @Component
 @Transactional
@@ -21,6 +21,7 @@ public class UserCircleDaoImpl implements UserCircleDao {
 	
 	public UserCircleDaoImpl() {
 	}
+	
 	
 	public UserCircleDaoImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;	}

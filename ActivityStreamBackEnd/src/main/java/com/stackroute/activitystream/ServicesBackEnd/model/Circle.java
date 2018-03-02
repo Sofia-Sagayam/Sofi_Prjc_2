@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd.model;
+package com.stackroute.activitystream.servicesbackend.model;
 
 import java.util.Date;
 
@@ -13,9 +13,9 @@ public class Circle {
 	@Id
 	private String circleId;
 	private String circleName;
-	private String circleBy;
+	private String circleCreatedBy;
 	private boolean circleStatus;
-	private Date circleInit;
+	private Date circleCreatedDate;
 	public String getCircleId() {
 		return circleId;
 	}
@@ -29,10 +29,11 @@ public class Circle {
 		this.circleName = circleName;
 	}
 	public String getCircleBy() {
-		return circleBy;
+		return circleCreatedBy;
 	}
-	public void setCircleBy(String circleBy) {
-		this.circleBy = circleBy;
+	
+	public void setCircleBy(String circleCreatedBy) {
+		this.circleCreatedBy = circleCreatedBy;
 	}
 	public boolean isCircleStatus() {
 		return circleStatus;
@@ -41,10 +42,10 @@ public class Circle {
 		this.circleStatus = circleStatus;
 	}
 	public Date getCircleInit() {
-		return circleInit;
+		return circleCreatedDate;
 	}
-	public void setCircleInit(Date circleInit) {
-		this.circleInit = circleInit;
+	public void setCircleInit(Date circleCreatedDate) {
+		this.circleCreatedDate = circleCreatedDate;
 	}
 	public String toString(){
 		return this.getCircleId()+" "+this.getCircleName()+" "+this.getCircleBy()+" "+this.getCircleInit();

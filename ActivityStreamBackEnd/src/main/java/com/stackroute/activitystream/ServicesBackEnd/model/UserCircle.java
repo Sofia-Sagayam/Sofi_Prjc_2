@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd.model;
+package com.stackroute.activitystream.servicesbackend.model;
 
 
 import javax.persistence.Entity;
@@ -31,6 +31,5 @@ public String getEmailId() {
 public void setEmailId(String emailId) {
 	this.emailId = emailId;
 }
-
 }
 

@@ -1,0 +1,119 @@
+13:53:27.883 [http-nio-9002-exec-7] DEBUG o.s.b.w.f.OrderedRequestContextFilter - Bound request context to thread: org.apache.catalina.connector.RequestFacade@34e3bd7a
+13:53:27.935 [http-nio-9002-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - DispatcherServlet with name 'dispatcherServlet' processing GET request for [/allCircles]
+13:53:27.951 [http-nio-9002-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /allCircles
+13:53:27.951 [http-nio-9002-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<java.util.List<com.stackroute.activitystream.servicesbackend.model.Circle>> com.stackroute.activitystream.circleservice.controller.CircleController.getCustomers()]
+13:53:27.951 [http-nio-9002-exec-7] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'circleController'
+13:53:27.956 [http-nio-9002-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Last-Modified value for [/allCircles] is: -1
+13:53:27.957 [http-nio-9002-exec-7] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+13:53:27.969 [http-nio-9002-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@177ad216] for JPA transaction
+13:53:27.969 [http-nio-9002-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.stackroute.activitystream.servicesbackend.dao.CircleDaoImpl.getAllCircle]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+13:53:27.970 [http-nio-9002-exec-7] DEBUG o.h.e.t.internal.TransactionImpl - begin
+13:53:27.975 [http-nio-9002-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@70fa5bea]
+13:53:27.979 [http-nio-9002-exec-7] DEBUG org.hibernate.SQL - select circle0_.circle_id as circle_i1_0_, circle0_.circle_created_by as circle_c2_0_, circle0_.circle_created_date as circle_c3_0_, circle0_.circle_name as circle_n4_0_, circle0_.circle_status as circle_s5_0_ from circle circle0_
+13:53:57.993 [http-nio-9002-exec-7] DEBUG o.h.e.jdbc.spi.SqlExceptionHelper - Unable to acquire JDBC Connection [n/a]
+org.apache.tomcat.jdbc.pool.PoolExhaustedException: [http-nio-9002-exec-7] Timeout: Pool empty. Unable to fetch a connection in 30 seconds, none available[size:100; busy:100; idle:0; lastwait:30000].
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:706)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.getConnection(ConnectionPool.java:198)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:132)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.internal.AbstractSessionImpl$NonContextualJdbcConnectionAccess.obtainConnection(AbstractSessionImpl.java:386)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:87)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:112)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.connection(StatementPreparerImpl.java:47)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:146)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:172)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:148)
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:1929)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1898)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1876)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:919)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:336)
+	at org.hibernate.loader.Loader.doList(Loader.java:2617)
+	at org.hibernate.loader.Loader.doList(Loader.java:2600)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2429)
+	at org.hibernate.loader.Loader.list(Loader.java:2424)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:501)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:371)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:216)
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1326)
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:87)
+	at com.stackroute.activitystream.servicesbackend.dao.CircleDaoImpl.getAllCircle(CircleDaoImpl.java:56)
+	at sun.reflect.GeneratedMethodAccessor77.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy78.getAllCircle(Unknown Source)
+	at com.stackroute.activitystream.circleservice.controller.CircleController.getCustomers(CircleController.java:27)
+	at sun.reflect.GeneratedMethodAccessor74.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+13:53:57.996 [http-nio-9002-exec-7] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+13:53:57.996 [http-nio-9002-exec-7] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - [http-nio-9002-exec-7] Timeout: Pool empty. Unable to fetch a connection in 30 seconds, none available[size:100; busy:100; idle:0; lastwait:30000].
+13:53:57.997 [http-nio-9002-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+13:53:57.997 [http-nio-9002-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.jpa.internal.EntityManagerImpl@177ad216]
+13:53:57.998 [http-nio-9002-exec-7] DEBUG o.h.e.t.internal.TransactionImpl - committing
+13:53:58.000 [http-nio-9002-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+13:53:58.013 [http-nio-9002-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
+13:53:58.013 [http-nio-9002-exec-7] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+13:53:58.013 [http-nio-9002-exec-7] DEBUG o.s.o.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+13:53:58.016 [http-nio-9002-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Successfully completed request
+13:53:58.016 [http-nio-9002-exec-7] DEBUG o.s.b.w.f.OrderedRequestContextFilter - Cleared thread-bound request context: org.apache.catalina.connector.RequestFacade@34e3bd7a

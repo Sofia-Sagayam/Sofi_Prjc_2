@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd.model;
+package com.stackroute.activitystream.servicesbackend.model;
 
 import java.util.Date;
 
@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name="Inbox")
 public class UserMessage {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	private int messageId;
 	private String senderId;
 	private String receiverId;
@@ -27,8 +27,7 @@ public class UserMessage {
 	public void setMessageId(int messageId) {
 		this.messageId = messageId;
 	}
-
-	public String getSenderId() {
+		public String getSenderId() {
 		return senderId;
 	}
 	public void setSenderId(String senderId) {

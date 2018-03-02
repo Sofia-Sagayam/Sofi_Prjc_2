@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd.dao;
+package com.stackroute.activitystream.servicesbackend.dao;
 
 import java.util.Date;
 import java.util.List;
@@ -14,10 +14,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.stackroute.activitystream.ServicesBackEnd.model.Circle;
-import com.stackroute.activitystream.ServicesBackEnd.model.Message;
-import com.stackroute.activitystream.ServicesBackEnd.model.Outbox;
-import com.stackroute.activitystream.ServicesBackEnd.model.UserMessage;
+import com.stackroute.activitystream.servicesbackend.model.Circle;
+import com.stackroute.activitystream.servicesbackend.model.Message;
+import com.stackroute.activitystream.servicesbackend.model.Outbox;
+import com.stackroute.activitystream.servicesbackend.model.UserMessage;
 
 
 @Repository(value="userMessageDao")
@@ -27,8 +27,7 @@ import com.stackroute.activitystream.ServicesBackEnd.model.UserMessage;
 public class UserMessageDaoImpl implements UserMessageDao {
 	@Autowired
 	SessionFactory sessionFactory;
-	
-	
+		
 	public UserMessageDaoImpl(SessionFactory sessionFactory) {
 		super();
 		this.sessionFactory = sessionFactory;

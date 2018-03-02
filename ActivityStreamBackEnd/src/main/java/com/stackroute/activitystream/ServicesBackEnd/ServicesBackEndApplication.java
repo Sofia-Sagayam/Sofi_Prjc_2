@@ -1,4 +1,4 @@
-package com.stackroute.activitystream.ServicesBackEnd;
+package com.stackroute.activitystream.servicesbackend;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.jpa.HibernateEntityManagerFactory;
@@ -12,9 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController
-@SpringBootApplication(scanBasePackages={"com.stackroute.activitystream.ServicesBackEnd"})
-@EntityScan(basePackages={"com.stackroute.activitystream.ServicesBackEnd"})
+
+@SpringBootApplication(scanBasePackages={"com.stackroute.activitystream.servicesbackend"})
+@EntityScan(basePackages={"com.stackroute.activitystream.servicesbackend"})
 @ComponentScan(basePackages={"com.stackroute.activitystream"})
 @EnableAutoConfiguration
 public class ServicesBackEndApplication {
