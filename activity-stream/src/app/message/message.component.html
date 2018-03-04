@@ -1,0 +1,18 @@
+
+
+
+<div class="top">
+  <li *ngFor="let msg of messages">
+    <span class="badge">{{msg.senderId}} {{msg.dateOfMessage}}</span><br/>
+    <span class="badge">{{msg.messageContent}}</span>
+    </li>
+
+  </div>
+
+
+<div class="bottom">
+                    <div class="text text-r" style="background:coral !important" *ngIf="messages">
+
+                        <input #messageContent id="msgbox" type="text" placeholder="Type a message"
+                            (keyup.enter)="sendMessage(messageContent.value);"/>
+                    </div>

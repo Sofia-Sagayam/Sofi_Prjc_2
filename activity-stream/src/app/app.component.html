@@ -1,0 +1,35 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align:center">
+  <h1>
+  Hi  welcome to activity stream!
+  </h1>
+
+
+
+<div class="left">
+  <h2>
+
+<app-users [users]="users" (messages)='onMessages($event)'  (receiverId)='receiverIdOnSelect($event)' >
+
+     </app-users>
+
+</h2>  <br><br><br><br>
+<h2>
+
+<app-circle [circles]="circles" (messages)='onMessages($event)'></app-circle>
+
+</h2>
+<h2>
+  <app-circlecreation></app-circlecreation>  
+
+</h2>
+</div>
+
+<div class="main">
+  <!--you have given message   not messages -->
+    <h2><app-message  [messages]="messages" [receiverId]="receiverId"></app-message></h2>
+</div>
+
+
+</div>

@@ -1,0 +1,11 @@
+
+<table>
+       <thead>
+           <th class="th">Circles</th>
+       </thead>
+       <tbody>
+           <tr *ngFor="let circle of circles" (click)="circleMessage(circle.circleId)">
+               <td>{{circle.circleName}}</td>
+           </tr>
+       </tbody>
+   </table>
